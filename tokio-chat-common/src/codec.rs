@@ -76,7 +76,7 @@ impl<In, Out> Codec for LengthPrefixedJson<In, Out>
         }
 
         // Insert our length bytes at the front of `buf`.
-        let mut cursor = io::Cursor::new(buf.as_mut());
+        let mut cursor = io::Cursor::new(buf);
         cursor.set_position(0);
         cursor.write_u16::<BigEndian>(len)
     }
